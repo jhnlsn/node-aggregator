@@ -3,6 +3,24 @@
 Aggregate feeds from different feed locations
 
 ## Getting Started
+Install Redis
+
+On osx using homebres
+```
+brew install redis
+```
+
+On nix systems
+
+```
+git clone http://github.com/antirez/redis.git
+cd redis/src
+make
+sudo make install
+cd ../..
+rm -rf redis
+```
+
 Install the module with: `npm install aggregator`
 
 ```javascript
