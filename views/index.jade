@@ -1,0 +1,35 @@
+!!! 5
+html
+	head
+		<link rel='stylesheet' href='/css/bootstrap.css'>
+		<link rel='stylesheet' href='/css/bootstrap-responsive.css'>
+		!=css('main')
+	body
+		div.container-fluid
+			div.row-fluid
+				div.span3
+					h3 Hacker News
+					- var stories = ['one','two','three']
+					ul.unstyled
+						each feed in feeds.hn
+							li
+								a(href="#{feed.link}",target="_blank")!= feed.title
+				div.span3
+					h3 Reddit
+					ul.unstyled
+						each feed in feeds.reddit
+							li
+								a(href="#{feed.link}",target="_blank")!= feed.title
+				div.span3
+					h3 Digg
+					ul.unstyled
+						each feed in feeds.digg
+							li
+								a(href="#{feed.link}",target="_blank")!= feed.title
+				div.span3
+					h3 9gag
+					ul.unstyled
+						each feed in feeds.gag
+							li
+								a(href="#{feed.link}",target="_blank")!= feed.title
+								div.content!= feed.content

@@ -2,6 +2,12 @@
 
 Aggregate feeds from different feed locations
 
+Currently a playground for implementing something very similar (almost exactly) to popurls.com
+
+I wanted to see what it would take for me to write somthing like that in nodejs.
+
+It turns out, its very easy!
+
 ## Getting Started
 Install Redis
 
@@ -29,6 +35,10 @@ If this is an upgrade and you already have the homebrew.mxcl.redis.plist loaded:
     redis-cli
 ```
 
+
+
+
+
 On nix systems
 
 ```
@@ -46,6 +56,11 @@ Install the module with: `npm install aggregator`
 var aggregator = require('aggregator');
 aggregator.awesome(); // "awesome"
 ```
+
+## Todo
+  Save off feeds in redis
+  Move feed pulls into a module
+  publish a live example
 
 ## Documentation
 _(Coming soon)_
