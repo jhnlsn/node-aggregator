@@ -5,54 +5,48 @@ html
 		<link rel='stylesheet' href='/css/bootstrap.css'>
 		<link rel='stylesheet' href='/css/bootstrap-responsive.css'>
 		!=css('main')
+		!=js('bootstrap.min')
+		!=js('knockout-2.1.0')
 	body
+		mixin feedlist(feeds)
+			- if(feeds.length < 5)
+				each feed in feeds
+					li
+						a(href="#{feed.link}",target="_blank")!= feed.title
+			- else
+				- for(var i=0; i<10; i++)
+					li
+						a(href="#{feeds[i].link}",target="_blank")!= feeds[i].title.substring(0,100)+(feeds[i].title.length>100?'&hellip;':'')
+
 		div.container-fluid
 			div.row-fluid
 				div.span3
-					h3 Hacker News
-					- var stories = ['one','two','three']
+					h3
+						a(href="http://news.ycombinator.com") Hacker News
 					ul.unstyled
-						each feed in feeds.hn
-							li
-								a(href="#{feed.link}",target="_blank")!= feed.title
+						mixin feedlist(feeds.hn)
 				div.span3
 					h3 Reddit
 					ul.unstyled
-						each feed in feeds.reddit
-							li
-								a(href="#{feed.link}",target="_blank")!= feed.title.substring(0,100)+(feed.title.length>100?'&hellip;':'')
+						mixin feedlist(feeds.reddit)
 				div.span3
 					h3 Digg
 					ul.unstyled
-						each feed in feeds.digg
-							li
-								a(href="#{feed.link}",target="_blank")!= feed.title
+						mixin feedlist(feeds.digg)
 				div.span3
 					h3 9gag
 					ul.unstyled
-						each feed in feeds.gag
-							li
-								a(href="#{feed.link}",target="_blank")!= feed.title
-								div.content!= feed.content
+						mixin feedlist(feeds.gag)
 			div.row-fluid
 				div.span3
 					h3 NPR
 					ul.unstyled
-						each feed in feeds.nprhome
-							li
-								a(href="#{feed.link}",target="_blank")!= feed.title
-								div.content!= feed.content
+						mixin feedlist(feeds.nprhome)
 				div.span3
 					h3 Huffington Post
 					ul.unstyled
-						each feed in feeds.huffington
-							li
-								a(href="#{feed.link}",target="_blank")!= feed.title
-								div.content!= feed.content
+						mixin feedlist(feeds.huffington)
 				div.span3
 					h3 New York Times
 					ul.unstyled
-						each feed in feeds.nyt
-							li
-								a(href="#{feed.link}",target="_blank")!= feed.title
-								div.content!= feed.content
+						mixin feedlist(feeds.nyt)
