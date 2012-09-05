@@ -8,8 +8,13 @@ I wanted to see what it would take for me to write somthing like that in nodejs.
 
 It turns out, its very easy!
 
+
+## Demo
+[http://r.scv.mx/](http://r.scv.mx/)
+
+
 ## Getting Started
-Install Redis
+Install Redis - not using redis yet
 
 On osx using homebrew
 ```
@@ -34,9 +39,6 @@ If this is an upgrade and you already have the homebrew.mxcl.redis.plist loaded:
   To access the server:
     redis-cli
 ```
-
-
-
 
 
 On nix systems
