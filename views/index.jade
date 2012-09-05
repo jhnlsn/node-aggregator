@@ -19,7 +19,7 @@ html
 					ul.unstyled
 						each feed in feeds.reddit
 							li
-								a(href="#{feed.link}",target="_blank")!= feed.title
+								a(href="#{feed.link}",target="_blank")!= feed.title.substring(0,100)+(feed.title.length>100?'&hellip;':'')
 				div.span3
 					h3 Digg
 					ul.unstyled
@@ -30,6 +30,28 @@ html
 					h3 9gag
 					ul.unstyled
 						each feed in feeds.gag
+							li
+								a(href="#{feed.link}",target="_blank")!= feed.title
+								div.content!= feed.content
+			div.row-fluid
+				div.span3
+					h3 NPR
+					ul.unstyled
+						each feed in feeds.nprhome
+							li
+								a(href="#{feed.link}",target="_blank")!= feed.title
+								div.content!= feed.content
+				div.span3
+					h3 Huffington Post
+					ul.unstyled
+						each feed in feeds.huffington
+							li
+								a(href="#{feed.link}",target="_blank")!= feed.title
+								div.content!= feed.content
+				div.span3
+					h3 New York Times
+					ul.unstyled
+						each feed in feeds.nyt
 							li
 								a(href="#{feed.link}",target="_blank")!= feed.title
 								div.content!= feed.content
