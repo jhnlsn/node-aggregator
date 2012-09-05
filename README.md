@@ -2,7 +2,7 @@
 
 Aggregate feeds from different feed locations
 
-Currently a playground for implementing something very similar (almost exactly) to popurls.com
+Currently a playground for implementing something very similar (almost exactly) to [http://popurls.com](popurls.com) using nodejs
 
 I wanted to see what it would take for me to write somthing like that in nodejs.
 
@@ -52,16 +52,11 @@ cd ../..
 rm -rf redis
 ```
 
-Install the module with: `npm install aggregator`
-
-```javascript
-var aggregator = require('aggregator');
-aggregator.awesome(); // "awesome"
-```
-
 ## Todo
   Save off feeds in redis
+
   Move feed pulls into a module
+  
   publish a live example
 
 ## Documentation
