@@ -12,10 +12,6 @@ html
 	body
 		<a class="hidden-phone" href="https://github.com/johnymonster/node-aggregator"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
 		mixin feedlist(feeds)
-<<<<<<< HEAD
-			- if(feeds && feeds.length < 5)
-				each feed in feeds
-=======
 			- if(feeds && feeds.length > 0)
 				- if(feeds.length > 0 && feeds.length < 5)
 					each feed in feeds
@@ -28,7 +24,6 @@ html
 		mixin image(feeds)
 			ul.unstyled
 				- each feed in feeds
->>>>>>> Updating feeds
 					li
 						a(href="#{feed.origlink}",target="_blank")
 							img(src="#{feed['media:content']['media:thumbnail']['@']['url']}",rel="tooltip",title="#{feed.title}").img-polaroid
@@ -78,19 +73,7 @@ html
 					h3 New York Times
 					ul.unstyled
 						mixin feedlist(feeds.nyt)
-<<<<<<< HEAD
-				div.span3
-					h3 Google News
-					ul.unstyled
-						mixin feedlist(feeds.google)
-=======
 			div.row-fluid
 				div.span12.imageblock
 					h3 Imgur
 					mixin image(feeds.imgur)
-
-
-
-
-
->>>>>>> Updating feeds
