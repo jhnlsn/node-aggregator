@@ -2,56 +2,95 @@
 html
 	head
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link rel='stylesheet' href='/css/bootstrap.min.css'>
-		<link rel='stylesheet' href='/css/bootstrap-responsive.min.css'>
+		!=css('bootstrap.min')
+		!=css('bootstrap-responsive.min')
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 		!=css('main')
-		!=js('bootstrap.min')
+		!=js('bootstrap')
 		!=js('knockout-2.1.0')
+		!=js('main');
 	body
-		<a href="https://github.com/johnymonster/node-aggregator"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+		<a class="hidden-phone" href="https://github.com/johnymonster/node-aggregator"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
 		mixin feedlist(feeds)
+<<<<<<< HEAD
 			- if(feeds && feeds.length < 5)
 				each feed in feeds
+=======
+			- if(feeds && feeds.length > 0)
+				- if(feeds.length > 0 && feeds.length < 5)
+					each feed in feeds
+						li
+							a(href="#{feed.link}",target="_blank")!= feed.title
+				- else if(feeds.length > 0)
+					- for(var i=0; i<10; i++)
+						li
+							a(href="#{feeds[i].link}",target="_blank")!= feeds[i].title.substring(0,75)+(feeds[i].title.length>75?'&hellip;':'')	
+		mixin image(feeds)
+			ul.unstyled
+				- each feed in feeds
+>>>>>>> Updating feeds
 					li
-						a(href="#{feed.link}",target="_blank")!= feed.title
-			- else
-				- for(var i=0; i<10; i++)
-					li
-						a(href="#{feeds[i].link}",target="_blank")!= feeds[i].title.substring(0,100)+(feeds[i].title.length>100?'&hellip;':'')
-
+						a(href="#{feed.origlink}",target="_blank")
+							img(src="#{feed['media:content']['media:thumbnail']['@']['url']}",rel="tooltip",title="#{feed.title}").img-polaroid
 		div.container-fluid
 			div.row-fluid
-				div.span3
+				div.span4
 					h3
 						a(href="http://news.ycombinator.com") Hacker News
 					ul.unstyled
 						mixin feedlist(feeds.hn)
-				div.span3
-					h3 Reddit
+				div.span4
+					h3
+						a(href="http://reddit.com") Reddit
 					ul.unstyled
 						mixin feedlist(feeds.reddit)
-				div.span3
-					h3 Digg
+				div.span4
+					h3
+						a(href="http://digg.com") Digg
 					ul.unstyled
 						mixin feedlist(feeds.digg)
-				div.span3
-					h3 9gag
+			div.row-fluid
+				div.span4
+					h3
+						a(href="http://9gag.com") 9gag
 					ul.unstyled
 						mixin feedlist(feeds.gag)
+				div.span4
+					h3
+						a(href="http://techcrunch.com/") TechCrunch
+					ul.unstyled
+						mixin feedlist(feeds.techcrunch)
+				div.span4
+					h3
+						a(href="http://www.engadget.com") Engadget
+					ul.unstyled
+						mixin feedlist(feeds.engadget)
 			div.row-fluid
-				div.span3
+				div.span4
 					h3 NPR
 					ul.unstyled
 						mixin feedlist(feeds.nprhome)
-				div.span3
+				div.span4
 					h3 Huffington Post
 					ul.unstyled
 						mixin feedlist(feeds.huffington)
-				div.span3
+				div.span4
 					h3 New York Times
 					ul.unstyled
 						mixin feedlist(feeds.nyt)
+<<<<<<< HEAD
 				div.span3
 					h3 Google News
 					ul.unstyled
 						mixin feedlist(feeds.google)
+=======
+			div.row-fluid
+				div.span12.imageblock
+					h3 Imgur
+					mixin image(feeds.imgur)
+
+
+
+
+
+>>>>>>> Updating feeds
