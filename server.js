@@ -17,4 +17,8 @@ app.get('/',function(req,res){
 	res.render('index',{feeds: news_feeds});
 });
 
+app.get('/load',function(req,res){
+    res.send('hello');
+})
+
 app.listen(3000);
