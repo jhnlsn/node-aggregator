@@ -1,6 +1,7 @@
 var express = require('express')
 	, _ = require('underscore')
-	, feeds = require('./lib/aggregator');
+	, feeds = require('./lib/aggregator')
+  , util = require('util');
 
 var app = express();
 
@@ -15,6 +16,7 @@ app.use(express.static(__dirname + '/public'));
 var news_feeds = feeds();
 
 app.get('/',function(req,res){
+    console.log(util.inspect(process.memoryUsage()));
 	res.render('index',{feeds: news_feeds});
 });
 
