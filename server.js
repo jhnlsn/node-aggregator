@@ -6,6 +6,7 @@ var app = express();
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
+app.enable('view cache');
 app.use(app.router);
 app.use(require('connect-assets')());
 app.use(express.static(__dirname + '/public'));
