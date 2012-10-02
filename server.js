@@ -16,7 +16,8 @@ app.use(express.static(__dirname + '/public'));
 var news_feeds = feeds();
 
 app.get('/',function(req,res){
-    console.log(util.inspect(process.memoryUsage()));
+    var mem = util.inspect(process.memoryUsage();
+    console.log('rss',(mem.rss/1024)/1024 + 'Mb', 'heapTotal',(mem.heapTotal/1024)/1024 + 'Mb', 'heapUsed',(mem.heapUsed/1024)/1024 + 'Mb');
 	res.render('index',{feeds: news_feeds});
 });
 
